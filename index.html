@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个简洁现代的待办事项应用，帮助你高效管理日常任务。">
+  <title>待办清单 · Todo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-bg"></div>
+
+  <main class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+      </div>
+      <h1>待办清单</h1>
+      <p class="header-subtitle">记录每一件重要的事</p>
+    </header>
+
+    <!-- Input Area -->
+    <div class="input-area" id="input-area">
+      <input
+        type="text"
+        id="task-input"
+        class="task-input"
+        placeholder="✍️ 输入新的待办事项..."
+        maxlength="200"
+        autocomplete="off"
+      />
+      <button id="add-btn" class="add-btn" aria-label="添加任务">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        <span>添加</span>
+      </button>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" id="stats-bar">
+      <div class="stat-item">
+        <span class="stat-dot stat-dot--pending"></span>
+        <span>待完成 <strong id="pending-count">0</strong></span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-dot stat-dot--done"></span>
+        <span>已完成 <strong id="done-count">0</strong></span>
+      </div>
+      <div class="stat-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-text" id="progress-text">0%</span>
+      </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs" id="filter-tabs">
+      <button class="filter-btn active" data-filter="all" id="filter-all">全部</button>
+      <button class="filter-btn" data-filter="pending" id="filter-pending">待完成</button>
+      <button class="filter-btn" data-filter="done" id="filter-done">已完成</button>
+    </div>
+
+    <!-- Task List -->
+    <ul class="task-list" id="task-list">
+      <!-- Tasks will be rendered here -->
+    </ul>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="empty-state">
+      <div class="empty-icon">📝</div>
+      <p class="empty-title">还没有待办事项</p>
+      <p class="empty-subtitle">在上方输入框中添加你的第一个任务吧！</p>
+    </div>
+
+    <!-- Clear Completed -->
+    <button class="clear-btn" id="clear-done-btn" style="display:none;">
+      🗑️ 清除已完成任务
+    </button>
+  </main>
+
+  <footer class="app-footer">
+    <p>数据安全地保存在你的浏览器中 🔒</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
